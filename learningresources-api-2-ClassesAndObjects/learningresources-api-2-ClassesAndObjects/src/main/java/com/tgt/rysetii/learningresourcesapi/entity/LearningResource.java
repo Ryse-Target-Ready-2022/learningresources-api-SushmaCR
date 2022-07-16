@@ -1,11 +1,8 @@
 package com.tgt.rysetii.learningresourcesapi.entity;
-
-import java.io.Serializable;
 import java.time.LocalDate;
-
-public class LearningResource implements Serializable {
-    private static final long serialVersionUID = 1L;
-	private Integer id;
+public class LearningResource {
+    
+    private Integer id;
     private String name;
     private Double costPrice;
     private Double sellingPrice;
@@ -36,11 +33,11 @@ public class LearningResource implements Serializable {
         this.id = id;
     }
 
-    public String getLearningResourceName() {
+    public String getProductName() {
         return name;
     }
 
-    public void setLearningResourceNameName(String name) {
+    public void setProductName(String name) {
         this.name = name;
     }
 
@@ -90,19 +87,5 @@ public class LearningResource implements Serializable {
 
     public void setRetiredDate(LocalDate retiredDate) {
         this.retiredDate = retiredDate;
-    }
-
-    @Override
-    public String toString() {
-        return "LearningResource{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", costPrice=" + costPrice +
-                ", sellingPrice=" + sellingPrice +
-                ", resourceStatus=" + resourceStatus +
-                ", createdDate=" + createdDate +
-                ", publishedDate=" + publishedDate +
-                ", retiredDate=" + retiredDate +
-                '}';
     }
 }
