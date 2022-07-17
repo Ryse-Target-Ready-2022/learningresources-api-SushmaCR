@@ -1,24 +1,27 @@
+Activity Goal
+Learn about JPA, Interfaces and Abstract classes while getting familiar with Git.
 
-Learn about different access modifiers, methods, collections and file handling in Java too.
+Activity Details
+Create a new branch called 4-JPA.
+Create a new package called repository.
+Create an interface named LearningResourceRepository.
+Add the dependency for Spring Data JPA in build.gradle file.
+Add the dependency for an H2 in-memory database.
+Add the database connection details in the properties file.
+Add the SQL queries to insert the data to the in-memory database in the data.sql file.
+Map your entity class to match with the database table and its columns.
+Modify your service class to load/save data to the in-memory database using the repository methods.
+Delete the LearningResources.csv file.
+Run the app and check if the records mentioned in data.sql are added successfully by navigating to http://localhost:8585/h2-console.
+Call saveLearningResources method and check if the data is successfully stored in the database.
+Raise a pull request and merge your changes to the master branch.
+Delete the branch 4-JPA.
 
-# Activity Details
-1. Create a new branch `3-Methods-Collections`.
-1. Create a package with name `service`.
-2. Create a class with name `LearningResourceService` under the package `service`.
-3. Create a private method `getLearningResources` to load data from `LearningResources.csv` file.
-4. Commit your changes to the current branch.
-5. Create a method to `saveLearningResources` to save data to the `LearningResources.csv` file.
-6. Create a method to calculate profit margin of each product.
-7. Sort the Learning Resources by the profit margin in non-increasing order.
-8. Commit your changes to the current branch.
-9. Raise a pull request and merge your changes to the `master` branch.
-10. Delete the branch `3-Methods-Collections`.
 
-# Activities to explore.
-1. Understand the purpose of methods.
-2. Understand how to pass input parameters to a method.
-3. Understand how to return output of a method.
-4. Understand main method.
-5. Understand static keyword and when to use.
-6. Understand variable scoping.
-7. Understand basics of exception handling.# learningresources-api-SushmaCR
+Activities to explore
+Understand JPA concepts.
+Understand resource files such as app.yml or app.properties.
+Understand how to connect to dev database, stage database, prod database, etc
+Understand good practise while checking in resource files.
+Understand what is an interface. Observe how it is used in the repository layer.
+Understand JDBC as an alternative to connect to db.
