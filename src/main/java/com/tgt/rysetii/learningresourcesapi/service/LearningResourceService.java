@@ -39,5 +39,17 @@ public class LearningResourceService {
         });
         return learningResources;
     }
+    public String deleteLearningResource(int id)
+    {
+        if(learningResourcesRepo.existsById(id))
+        {
+        	learningResourcesRepo.deleteById(id);
+            return "Deleted the Learning Resource Successfully...!";
+        }
+        else
+        {
+            return "Sorry, Learning Resource Doesn't Exist!";
+        }
+    }
 
 }

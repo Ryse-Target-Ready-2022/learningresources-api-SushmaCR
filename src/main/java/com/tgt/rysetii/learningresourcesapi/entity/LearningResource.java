@@ -1,12 +1,11 @@
 package com.tgt.rysetii.learningresourcesapi.entity;
 import javax.persistence.*;
 
-
 import java.time.LocalDate;
 
 @Entity
 @Table(name="learningresources")
-public class LearningResource {
+public class LearningResource{
 	
 	@Id
 	private int id;
@@ -31,6 +30,11 @@ public class LearningResource {
 		this.publishedDate = publishedDate;
 		this.retiredDate = retiredDate;
 	}
+	
+	public LearningResource() {
+		super();
+	}
+
 	public int getId() {
 		return id;
 	}
