@@ -1,11 +1,7 @@
-Learn about APIs and how to create them following best practices.
+Learn how to write controller tests.
 
 Activity Details
-
-Create a new branch called 5-Controllers.
-Create a new package called controllers.
-Create a new class named LearningResourceController under the package controllers.
-Create GET, POST and DELETE endpoints to interact with the Learning Resources and expose them.
-Add appropriate response status for each end point.
-Raise a pull request and merge your changes to the master branch.
-Delete the branch 5-Controllers.
+Create a new branch called 7-ControllerTests.
+Create a new package called controller under src/test/java/com/tgt/rysetii/learningresourcesapi.
+Create a new class named LearningResourceControllerTests under the package controller.
+Write the tests for the all the methods listed out in the LearningResourceController class..
