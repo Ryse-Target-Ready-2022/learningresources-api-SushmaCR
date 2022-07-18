@@ -1,7 +1,10 @@
 package com.tgt.rysetii.learningresourcesapi.controllers;
 
 import com.tgt.rysetii.learningresourcesapi.entity.LearningResource;
+import com.tgt.rysetii.learningresourcesapi.repository.LearningResourceRepository;
 import com.tgt.rysetii.learningresourcesapi.service.LearningResourceService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +14,9 @@ import java.util.List;
 public class LearningResourceController {
 
     private final LearningResourceService learningresourceservice;
-
+    @Autowired
+    LearningResourceRepository repo;
+    
     public LearningResourceController(LearningResourceService learningresourceservice) {
         this.learningresourceservice = learningresourceservice;
     }
@@ -31,7 +36,15 @@ public class LearningResourceController {
     @DeleteMapping("/Resources/{id}")
     public String deleteResource(@PathVariable int id)
     {
-        return learningresourceservice.deleteLearningResource(id);
+    	if(repo.existsById(id))
+    	{
+        learningresourceservice.deleteLearningResource(id);
+        return "Successfully Deleted...!";
+    	}
+    	else
+    	{
+    		return "Id doesn't exist!!";
+    	}
     }
 
 
