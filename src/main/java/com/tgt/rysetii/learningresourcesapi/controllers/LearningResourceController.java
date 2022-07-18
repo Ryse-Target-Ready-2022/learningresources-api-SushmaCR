@@ -1,51 +1,35 @@
 package com.tgt.rysetii.learningresourcesapi.controllers;
 
 import com.tgt.rysetii.learningresourcesapi.entity.LearningResource;
-import com.tgt.rysetii.learningresourcesapi.repository.LearningResourceRepository;
 import com.tgt.rysetii.learningresourcesapi.service.LearningResourceService;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
+@RequestMapping("/Resources")
 public class LearningResourceController {
 
-    private final LearningResourceService learningresourceservice;
-    @Autowired
-    LearningResourceRepository repo;
-    
-    public LearningResourceController(LearningResourceService learningresourceservice) {
-        this.learningresourceservice = learningresourceservice;
+    private final LearningResourceService learningResourceService;
+
+    public LearningResourceController(LearningResourceService learningResourceService) {
+        this.learningResourceService = learningResourceService;
     }
 
-    @GetMapping("/Resources")
-    public List<LearningResource> getResources()
-    {
-        return learningresourceservice.getLearningResources();
-    }
-    @PostMapping("/Resources")
-    public String putResources(@RequestBody List<LearningResource> learningresource)
-    {
-
-    	learningresourceservice.saveLearningResources(learningresource);
-        return "Successfully Added the Resources..!";
-    }
-    @DeleteMapping("/Resources/{id}")
-    public String deleteResource(@PathVariable int id)
-    {
-    	if(repo.existsById(id))
-    	{
-        learningresourceservice.deleteLearningResource(id);
-        return "Successfully Deleted...!";
-    	}
-    	else
-    	{
-    		return "Id doesn't exist!!";
-    	}
+    @GetMapping("/")
+    public List<LearningResource> getAllLearningResources(){
+        return learningResourceService.getLearningResources();
     }
 
+    @PostMapping(value = "/", consumes = "application/json")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void saveLearningResources(@RequestBody List<LearningResource> learningResources){
+        learningResourceService.saveLearningResources(learningResources);
+    }
 
+    @DeleteMapping(value = "/learningresource/{learningResourceId}")
+    public void deleteLearningResource(@PathVariable int learningResourceId){
+        learningResourceService.deleteLearningResource(learningResourceId);
+    }
 }

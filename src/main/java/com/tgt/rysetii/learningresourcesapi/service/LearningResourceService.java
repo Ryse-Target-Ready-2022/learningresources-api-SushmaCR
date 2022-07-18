@@ -39,10 +39,8 @@ public class LearningResourceService {
         });
         return learningResources;
     }
-    public void deleteLearningResource(int id)
-    {
-        	learningResourcesRepo.deleteById(id);
-  
+    public void deleteLearningResource(int learningResourceId) {
+    	learningResourcesRepo.deleteById(learningResourceId);
     }
 
 }
